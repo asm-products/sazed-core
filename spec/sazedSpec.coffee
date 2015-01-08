@@ -4,8 +4,10 @@ describe 'Sazed options parser', ()->
 
   beforeEach ()->
     contentDiv = document.getElementById('content')
-    contentDiv && contentDiv.remove()
-    document.write "<div id='content'></div>"
+    if contentDiv
+      contentDiv.innerHTML = "<div id='content'></div>"
+    else
+      document.write "<div id='content'></div>"
 
   it 'should validate options', ()->
     expect ()->

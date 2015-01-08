@@ -8,8 +8,11 @@
     beforeEach(function() {
       var contentDiv;
       contentDiv = document.getElementById('content');
-      contentDiv && contentDiv.remove();
-      return document.write("<div id='content'></div>");
+      if (contentDiv) {
+        return contentDiv.innerHTML = "<div id='content'></div>";
+      } else {
+        return document.write("<div id='content'></div>");
+      }
     });
     it('should validate options', function() {
       expect(function() {
