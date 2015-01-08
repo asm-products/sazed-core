@@ -18,3 +18,8 @@ options is a hash that can contain the following keys:
     sazed.edit(file_path)
 
 Loads the editor. Here `file_path` is an optional argument, which Sazed will try to infer from the current URL in the browser. `file_path` is something like `content/licence.md`.
+
+
+#Hacking
+
+Testing framework used is Jasmine. Karma is used as the testrunner. 
