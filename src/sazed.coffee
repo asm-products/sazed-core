@@ -1,3 +1,5 @@
+EpicEditor = require 'EpicEditor/src/editor'
+
 class Sazed
   _translatePath: (path)->
     path ?= document.location.pathname
@@ -10,7 +12,22 @@ class Sazed
     throw "No repo provided" unless @options['repo']?
     throw 'No container given' unless @options['container']?
 
-    @container = document.getElementById(@options['container']) if typeof @options['container'] is 'String'
+    @options['container'] = document.getElementById(@options['container']) if typeof @options['container'] is 'String'
+
+    localStorageKey = 'sazed' + document.location.path # something like sazed/blog/2014/12/hello-world.html
+    
+    @editor = new EpicEditor
+      container: @options['container']
+      parser: @options['parser'],
+      # TODO: Figure out how to use the System path translater
+      # basePath: System.translate 'EpicEditor/epiceditor'
+      basePath: '/js/lib/github/OscarGodson/EpicEditor@0.2.3/epiceditor',
+      localStorageName: localStorageKey,
+      file:
+        autosave: false,
+      theme:
+        editor: '/themes/editor/epic-light.css',
+      autogrow: true
 
   edit:(file_path)->
 
