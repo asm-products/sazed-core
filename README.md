@@ -1,4 +1,4 @@
-#sazed-core
+#sazed-core [![Build Status](https://travis-ci.org/captn3m0/sazed-core.svg?branch=master)](https://travis-ci.org/captn3m0/sazed-core)
 
 This is the core JS that powers Sazed. Include sazed in your Jekyll projects to get access to the API.
 
