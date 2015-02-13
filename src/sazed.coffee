@@ -7,10 +7,18 @@ class Sazed
     path = path.concat 'index.md' if path.match(/\/$/)
     path
 
+  _parseRepo: (repo)->
+    if repo.indexOf('#') == -1
+      [repo, 'master']
+    else
+      repo.split('#')
+
   constructor: (@options = {})->
     @options['parser'] = @options['parser'] ? require('marked')
     throw "No repo provided" unless @options['repo']?
     throw 'No container given' unless @options['container']?
+
+    [@options['repo'], @options['branch']] = @_parseRepo(@options['repo'])
 
     @options['container'] = document.getElementById(@options['container']) if typeof @options['container'] is 'String'
 

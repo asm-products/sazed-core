@@ -5,7 +5,7 @@ describe 'Sazed url translater', ()->
   sazed = original = final = null
 
   beforeEach ()->
-    sazed = new Sazed({repo:1, container: 'content'})
+    sazed = new Sazed({repo:'nemo/nemo', container: 'content'})
 
   it 'should change ending html to md', ()->
     original = '/blog/hello/world.html'

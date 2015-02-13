@@ -15,14 +15,25 @@ describe 'Sazed options parser', ()->
     .toThrow 'No repo provided'
 
     expect ()->
-      sazed = new Sazed({repo:1})
+      sazed = new Sazed({repo: 'nemo/nemo'})
     .toThrow 'No container given'
 
   it 'should store the options', ()->
-    options = {repo:1, container: 'content'}
+    options = {repo: 'nemo/nemo', container: 'content'}
     sazed = new Sazed(options)
     expect(sazed.options).toEqual(options)
 
   it 'should load its dependencies', ()->
-    sazed = new Sazed({repo:1, container: 'content'})
+    sazed = new Sazed({repo: 'nemo/nemo', container: 'content'})
     expect(sazed.options.parser).toBeDefined()
+
+  it '_parseRepo should work', ()->
+    sazed = new Sazed({repo: 'nemo/nemo', container: 'content'})
+    result = sazed._parseRepo('nemo/nemo#master')
+    expect(result[0]).toEqual('nemo/nemo')
+    expect(result[1]).toEqual('master')
+
+  it 'should read branch name from repo name', ()->
+    sazed = new Sazed repo: 'nemo/nemo#master', container: 'content'
+    expect(sazed.options.repo).toEqual('nemo/nemo')
+    expect(sazed.options.branch).toEqual('master')
