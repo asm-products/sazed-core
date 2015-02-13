@@ -8,5 +8,5 @@ before_script:
   - jspm config endpoints.github.maxRepoSize 100
   - jspm config endpoints.github.handler jspm-github
   - ./node_modules/jspm/jspm.js install
-  - coffee -cb src/
-  - coffee -cb spec/
+  - ./node_modules/coffee-script/bin/coffee -cb src/
+  - ./node_modules/coffee-script/bin/coffee -cb spec/
