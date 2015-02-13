@@ -40,8 +40,8 @@
     },
     "dependencies": {
       "EpicEditor": "github:OscarGodson/EpicEditor@^0.2.3",
-      "github": "github:michael/github@^0.10.3",
       "marked": "github:chjj/marked@^0.3.2",
+      "octokat": "npm:octokat@^0.4.5",
       "text": "^0.0.2"
     }
   }
