@@ -2,6 +2,11 @@ language: node_js
 node_js:
   - 0.10
 before_script:
+  - jspm config endpoints.github.remote https://github.jspm.io
+  # This comes from travis config
+  - jspm config endpoints.github.auth $GITHUB_AUTH
+  - jspm config endpoints.github.maxRepoSize 100
+  - jspm config endpoints.github.handler jspm-github
   - ./node_modules/jspm/jspm.js install
   - coffee -cb src/
   - coffee -cb spec/
