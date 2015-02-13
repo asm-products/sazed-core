@@ -3,7 +3,7 @@
 	[
 		{
 			"path": ".",
-      "file_exclude_patterns": ["spec/*.js", "src/*.js"]
+      "file_exclude_patterns": ["src/*.js", "spec/*Spec.js"]
 		}
 	]
 }
