@@ -2,3 +2,4 @@ lib/
 node_modules/
 src/*.js
 spec/*.js
+sazed-core.sublime-workspace
