@@ -3,8 +3,13 @@ EpicEditor = require 'EpicEditor/src/editor'
 class Sazed
   _translatePath: (path)->
     path ?= document.location.pathname
-    path = path.replace(/\.html/, '.md') # Rename .html to .md
+    # Append index.md if the path ends in a slash
     path = path.concat 'index.md' if path.match(/\/$/)
+    # Remove the starting slash
+    path = path.slice(1)
+    # Rename .html to .md
+    path = path.replace(/\.html/, '.md')
+    # Return
     path
 
   _parseRepo: (repo)->

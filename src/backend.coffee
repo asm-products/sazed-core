@@ -7,7 +7,7 @@ class Backend
 
     [user, repo] = repo.split('/')
 
-    # If we are provided auth, use it here
+    # TODO: If we are provided auth, use it here
     # @repo = new Octokat(username, password)
     @repo = new Octokat()
       .repos(user, repo)
